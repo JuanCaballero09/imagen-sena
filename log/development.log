@@ -10,3 +10,18 @@ Migrating to CreateCars (20250218153901)
   [1m[36mCar Create (9.6ms)[0m  [1m[32mINSERT INTO "cars" ("placa", "modelo", "created_at", "updated_at") VALUES ('fmd871', 1998, '2025-02-18 15:42:00.564019', '2025-02-18 15:42:00.564019') RETURNING "id" /*application='MiApi'*/[0m
   [1m[36mTRANSACTION (14.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
   [1m[36mCar Load (4.3ms)[0m  [1m[34mSELECT "cars".* FROM "cars" /* loading for pp */ LIMIT 11 /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (8.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MiApi'*/[0m
+Migrating to CreatePersonas (20250219033843)
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "personas" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nombre" varchar, "edad" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mCar Create (6.9ms)[0m  [1m[32mINSERT INTO "cars" ("placa", "modelo", "created_at", "updated_at") VALUES ('3456', 1990, '2025-02-19 03:40:55.822500', '2025-02-19 03:40:55.822500') RETURNING "id" /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (111.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mCar Load (2.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars" /* loading for pp */ LIMIT 11 /*application='MiApi'*/[0m
+  [1m[36mCar Load (2.6ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = 2 LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mCar Load (1.7ms)[0m  [1m[34mSELECT "cars".* FROM "cars" WHERE "cars"."id" = 2 LIMIT 1 /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MiApi'*/[0m
+  [1m[36mCar Destroy (3.1ms)[0m  [1m[31mDELETE FROM "cars" WHERE "cars"."id" = 2 /*application='MiApi'*/[0m
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MiApi'*/[0m
